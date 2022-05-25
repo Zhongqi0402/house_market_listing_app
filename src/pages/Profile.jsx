@@ -1,4 +1,7 @@
 import React from 'react'
+import { useState, useEffect } from 'react'
+import { getAuth, updateProfile } from 'firebase/auth'
+
 
 function Profile() {
   return (
