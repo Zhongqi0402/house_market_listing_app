@@ -35,8 +35,8 @@ function Offers() {
         // Execute query
         const querySnap = await getDocs(q)
 
-        // const lastVisible = querySnap.docs[querySnap.docs.length - 1]
-        // setLastFetchedListing(lastVisible)
+        const lastVisible = querySnap.docs[querySnap.docs.length - 1]
+        setLastFetchedListing(lastVisible)
 
         const listings = []
 
@@ -69,7 +69,7 @@ function Offers() {
         where('offer', '==', true),
         orderBy('timestamp', 'desc'),
         startAfter(lastFetchedListing),
-        limit(10)
+        limit(5)
       )
 
       // Execute query
@@ -115,15 +115,14 @@ function Offers() {
               ))}
             </ul>
           </main>
-          {/**
-           <br />
+          
+          <br />
           <br />
           {lastFetchedListing && (
             <p className='loadMore' onClick={onFetchMoreListings}>
               Load More
             </p>
           )}
-           */}
           
         </>
       ) : (
